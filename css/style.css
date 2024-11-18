@@ -24,6 +24,12 @@
 /*	01) BENY BASE
 /*---------------------------------------------------*/
 
+@media only screen and (max-width: 768px) {
+	.beny_tm_hero .background .image {
+	  display: none; /* Hides the image on mobile */
+	}
+  }
+
 html {
 	overflow-x: hidden;
 	padding: 0px;
