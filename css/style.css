@@ -2487,10 +2487,9 @@ body.modal{
 
 
 
-
 /* Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; /* Ensure it is hidden by default */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -2498,35 +2497,21 @@ body.modal{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.9); /* Black with transparency */
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex; /* Flexbox for centering */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    opacity: 0; /* Start fully transparent */
-    transition: opacity 0.5s ease-in-out; /* Smooth transition */
+    align-items: center;
+    justify-content: center;
 }
-
-/* Show the modal (visible state) */
-.modal.show {
-    display: flex; /* Make it visible */
-    opacity: 1; /* Fully opaque */
-}
-
 /* Modal Content (image) */
 .modal-content {
     max-width: 80%;
     max-height: 80%;
-    animation: zoomIn 0.6s ease-in-out; /* Smooth zoom-in animation */
+    animation: zoom 0.6s;
 }
 
-/* Zoom-in effect */
-@keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-    }
-    to {
-        transform: scale(1);
-    }
+/* Remove Caption (Optional) */
+#caption {
+    display: none; /* Hide the caption */
 }
 
 /* Close button */
@@ -2538,7 +2523,6 @@ body.modal{
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .close:hover,

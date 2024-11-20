@@ -892,31 +892,28 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get all images in the event gallery
     const images = document.querySelectorAll("#event .about_inner .image");
 
+    // Hide modal initially (defensive programming)
+    modal.style.display = "none";
+
     // Add click event to each image
     images.forEach(imageContainer => {
         const imgUrl = imageContainer.getAttribute("data-img-url");
 
         imageContainer.addEventListener("click", function () {
-            modal.classList.add("show"); // Add class to show modal
+            modal.style.display = "flex"; // Show modal
             modalImg.src = imgUrl; // Set image source
         });
     });
 
     // Close modal on close button click
     closeBtn.addEventListener("click", function () {
-        modal.classList.remove("show"); // Remove class to hide modal
-        setTimeout(() => {
-            modalImg.src = ""; // Clear image source after fade-out
-        }, 500); // Wait for transition duration
+        modal.style.display = "none"; // Hide modal
     });
 
     // Optional: Close modal when clicking outside the image
     modal.addEventListener("click", function (e) {
         if (e.target === modal) {
-            modal.classList.remove("show"); // Remove class to hide modal
-            setTimeout(() => {
-                modalImg.src = ""; // Clear image source after fade-out
-            }, 500); // Wait for transition duration
+            modal.style.display = "none";
         }
     });
 });
