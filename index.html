@@ -878,6 +878,35 @@
     <div id="caption"></div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the modal
+        const modal = document.getElementById("imageModal");
+
+        // Get the modal image and caption text
+        const modalImg = document.getElementById("modalImg");
+        const captionText = document.getElementById("caption");
+
+        // Get all images in the event gallery
+        const images = document.querySelectorAll("#event .about_inner .image");
+        images.forEach(imageContainer => {
+            const img = imageContainer.getAttribute("data-img-url");
+            imageContainer.addEventListener("click", function () {
+                modal.style.display = "block";
+                modalImg.src = img;
+                captionText.textContent = img.split("/").pop(); // Optional caption from image name
+            });
+        });
+
+        // Close the modal when the close button is clicked
+        const closeBtn = document.querySelector(".modal .close");
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+    });
+</script>
+
+
 
 		<!-- SCRIPTS -->
 		<script src="js/jquery.js"></script>
