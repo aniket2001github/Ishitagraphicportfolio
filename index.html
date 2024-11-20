@@ -879,31 +879,30 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Get the modal
-        const modal = document.getElementById("imageModal");
+   document.addEventListener("DOMContentLoaded", function () {
+    // Get the modal
+    const modal = document.getElementById("imageModal");
 
-        // Get the modal image and caption text
-        const modalImg = document.getElementById("modalImg");
-        const captionText = document.getElementById("caption");
+    // Get the modal image
+    const modalImg = document.getElementById("modalImg");
 
-        // Get all images in the event gallery
-        const images = document.querySelectorAll("#event .about_inner .image");
-        images.forEach(imageContainer => {
-            const img = imageContainer.getAttribute("data-img-url");
-            imageContainer.addEventListener("click", function () {
-                modal.style.display = "block";
-                modalImg.src = img;
-                captionText.textContent = img.split("/").pop(); // Optional caption from image name
-            });
-        });
-
-        // Close the modal when the close button is clicked
-        const closeBtn = document.querySelector(".modal .close");
-        closeBtn.addEventListener("click", function () {
-            modal.style.display = "none";
+    // Get all images in the event gallery
+    const images = document.querySelectorAll("#event .about_inner .image");
+    images.forEach(imageContainer => {
+        const img = imageContainer.getAttribute("data-img-url");
+        imageContainer.addEventListener("click", function () {
+            modal.style.display = "flex"; // Flexbox for centering
+            modalImg.src = img;
         });
     });
+
+    // Close the modal when the close button is clicked
+    const closeBtn = document.querySelector(".modal .close");
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+});
+
 </script>
 
 
